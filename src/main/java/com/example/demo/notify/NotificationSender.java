@@ -1,15 +1,15 @@
 package com.example.demo.notify;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class NotificationSender {
     private final NotificationService service;
-
     // Автоматическое внедрение через конструктор
     @Autowired
-    public NotificationSender(NotificationService service) {
+    public NotificationSender(@Qualifier("chosenService") NotificationService service) {
         this.service = service;
     }
 
